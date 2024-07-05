@@ -3,6 +3,8 @@ import java.io.File;
 public class MiniTest {
     private Object object;
 
+    private MiniTest() {}
+
     public static MiniTest assertThat(Object object) {
         MiniTest instance = new MiniTest();
         instance.object = object;

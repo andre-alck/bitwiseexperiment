@@ -1,14 +1,23 @@
-public class Interactable {
-    public static void main(String[] args) {
-        int value = Integer.parseInt(args[0]);
-        Permission permission = Permission.getPermission(args[1]);
+public abstract class Interactable {
+    protected Object getArgument(String[] args, int position, Class clazz) {
+        if (!this.argumentExists(args, position)) {
+            return null;
+        }
 
-        PermissionService permissionService = new PermissionService();
-        boolean isAllowed = permissionService.isAllowed(value, permission);
-
-        Interactable interactable = new Interactable();
-        MiniTest.assertThat(isAllowed).isEqualTo(true);
+        ValueFactory factory = new ValueFactory();
+        ValueParser parser = factory.getParser(clazz);
+        return parser.parse(args[position]);
     }
 
-    // TODO make Interactable reusable for other bitwise use cases
+    private boolean argumentExists(String[] args, int position) {
+        try {
+            this.forceArrayIndexing(args[position]);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            return false;
+        }
+
+        return true;
+    }
+
+    private void forceArrayIndexing(String position) {}
 }
