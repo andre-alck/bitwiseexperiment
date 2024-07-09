@@ -3,6 +3,10 @@ import java.lang.Integer;
 
 public class ValueFactory {
     public ValueParser getParser(Class clazz) {
+        if (clazz == null) {
+            return null;
+        }
+    
         if (clazz.getSimpleName().equals(Integer.class.getSimpleName())) {
             return new IntegerValueParser();
         }

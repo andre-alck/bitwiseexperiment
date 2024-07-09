@@ -1,6 +1,3 @@
-import java.lang.Integer;
-import java.lang.Boolean;
-
 public class InteractableTest extends TestSuite {
 
     @TestMe
