@@ -5,6 +5,28 @@ public class MiniTest {
 
     private MiniTest() {}
 
+    public static void logForDebugging(Object logContent) {
+        MiniTest.logForDebugging(new Object[] { logContent });
+    }
+
+    public static void logForDebugging(Object[] logContents) {
+        if(logContents == null || logContents.length < 1) {
+            return;
+        }
+
+        for(Object logContent : logContents) {
+            if (logContent == null) {
+                MiniTest.log(null);
+            } else {
+                MiniTest.log(logContent.toString());   
+            }
+        }
+    }
+
+    private static void log(String logContent) {
+        System.out.println(logContent);
+    }
+
     public static MiniTest assertThat(Object object) {
         MiniTest instance = new MiniTest();
         instance.object = object;
@@ -12,6 +34,10 @@ public class MiniTest {
     }
 
     public boolean isEqualTo(Object object) {
+        if (object == null) {
+            return this.informTestStatus(this.object == null);
+        }
+
         return this.informTestStatus(this.object.equals(object));
     }
 

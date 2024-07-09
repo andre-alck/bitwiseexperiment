@@ -1,5 +1,5 @@
-public abstract class Interactable {
-    protected Object getArgument(String[] args, int position, Class clazz) {
+public class Interactable {
+    public Object getArgument(String[] args, int position, Class clazz) {
         if (!this.argumentExists(args, position)) {
             return null;
         }
@@ -9,15 +9,7 @@ public abstract class Interactable {
         return parser.parse(args[position]);
     }
 
-    private boolean argumentExists(String[] args, int position) {
-        try {
-            this.forceArrayIndexing(args[position]);
-        } catch (ArrayIndexOutOfBoundsException e) {
-            return false;
-        }
-
-        return true;
+    boolean argumentExists(String[] args, int position) {
+        return args != null && position < args.length;
     }
-
-    private void forceArrayIndexing(String position) {}
 }

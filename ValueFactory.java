@@ -3,15 +3,15 @@ import java.lang.Integer;
 
 public class ValueFactory {
     public ValueParser getParser(Class clazz) {
-        if (clazz.getSimpleName().equals("Integer")) {
+        if (clazz.getSimpleName().equals(Integer.class.getSimpleName())) {
             return new IntegerValueParser();
         }
 
-        if (clazz.getSimpleName().equals("Boolean")) {
+        if (clazz.getSimpleName().equals(Boolean.class.getSimpleName())) {
             return new BooleanValueParser();
         }
 
-        if (clazz.getSimpleName().equals("String")) {
+        if (clazz.getSimpleName().equals(String.class.getSimpleName())) {
             return new StringValueParser();
         }
 

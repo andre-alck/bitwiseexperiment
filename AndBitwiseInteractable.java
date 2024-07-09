@@ -1,9 +1,9 @@
 import java.lang.Integer;
 import java.lang.Boolean;
 
-public class AndBitwiseInteractable extends Interactable {
+public class AndBitwiseInteractable {
     public static void main(String[] args) {
-        AndBitwiseInteractable interactable = new AndBitwiseInteractable();
+        Interactable interactable = new Interactable();
 
         Integer value = (Integer) interactable.getArgument(args, 0, Integer.class);
         Permission permission = Permission.getPermission((String) interactable.getArgument(args, 1, String.class));
