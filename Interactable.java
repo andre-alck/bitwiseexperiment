@@ -1,7 +1,7 @@
 public class Interactable {
     public Object getArgument(String[] args, int position, Class clazz) {
         if (!this.argumentExists(args, position)) {
-            return null;
+            throw new RuntimeException("Can't get null argument.");
         }
 
         ValueFactory factory = new ValueFactory();
