@@ -1,6 +1,3 @@
-import java.lang.Boolean;
-import java.lang.Integer;
-
 public class ValueFactory {
     public ValueParser getParser(Class clazz) {
         if (clazz == null) {

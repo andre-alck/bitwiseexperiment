@@ -64,6 +64,6 @@ public class MiniTest {
     }
 
     private void handleException(Exception e) {
-        System.out.println(e.getMessage());
+        MiniTest.log(e.getMessage());
     }
 }

@@ -1,6 +1,3 @@
-import java.lang.Integer;
-import java.lang.Boolean;
-
 public class AndBitwiseInteractable {
     public static void main(String[] args) {
         Interactable interactable = new Interactable();
