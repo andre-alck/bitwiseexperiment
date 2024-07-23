@@ -7,7 +7,7 @@ public class RGBService {
         return red << 16 | green << 8 | blue;
     }
 
-    public int clamp(int value) {
+    int clamp(int value) {
         value = Math.max(0, Math.min(255, value));
         return value;
     }
